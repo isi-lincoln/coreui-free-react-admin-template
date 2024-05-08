@@ -16,7 +16,8 @@
     "build": "vite build",
     "lint": "eslint \"src/**/*.js\"",
     "serve": "vite preview",
-    "start": "vite"
+    "start": "vite",
+    "dev": "vite --host --port 3000"
   },
   "dependencies": {
     "@coreui/chartjs": "^4.0.0",
@@ -30,6 +31,8 @@
     "chart.js": "^4.4.2",
     "classnames": "^2.5.1",
     "core-js": "^3.36.1",
+    "cytoscape": "^3.29.2",
+    "cytoscape-avsdf": "^1.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

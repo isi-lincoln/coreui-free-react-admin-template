@@ -1,0 +1,153 @@
+[
+  { "data": { "id": "sdcore1"}},
+  { "data": { "id": "sdcore2"}},
+  { "data": { "id": "alpha"}},
+  { "data": { "id": "bravo"}},
+  { "data": { "id": "core"}},
+  { "data": { "id": "yanky"}},
+  { "data": { "id": "zulu"}},
+  {
+    "data": {
+      "uuid": "00000000-0000-0000-0000-000000000130",
+      "srcResource": "00000000-0000-0000-0000-000000000001",
+      "dstResource": "00000000-0000-0000-0000-000000000003",
+      "source": "sdcore1",
+      "target": "alpha",
+      "color": "black",
+      "bandwidth": "1000",
+      "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000140",
+    "srcResource": "00000000-0000-0000-0000-000000000001",
+    "dstResource": "00000000-0000-0000-0000-000000000004",
+    "source": "sdcore1",
+    "target": "bravo",
+    "color": "black",
+    "bandwidth": "100",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000260",
+    "srcResource": "00000000-0000-0000-0000-000000000002",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "sdcore2",
+    "target": "yanky",
+    "color": "black",
+    "bandwidth": "200",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000270",
+    "srcResource": "00000000-0000-0000-0000-000000000002",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "sdcore2",
+    "target": "zulu",
+    "color": "black",
+    "bandwidth": "1000",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000340",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000004",
+    "source": "alpha",
+    "target": "bravo",
+    "color": "black",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000350",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000005",
+    "source": "alpha",
+    "target": "core",
+    "color": "black",
+    "bandwidth": "500",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000360",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "alpha",
+    "target": "yanky",
+    "color": "black",
+    "bandwidth": "300",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000450",
+    "srcResource": "00000000-0000-0000-0000-000000000004",
+    "dstResource": "00000000-0000-0000-0000-000000000005",
+    "source": "bravo",
+    "target": "core",
+    "color": "black",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000470",
+    "srcResource": "00000000-0000-0000-0000-000000000004",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "bravo",
+    "target": "zulu",
+    "color": "black",
+    "bandwidth": "200",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000560",
+    "srcResource": "00000000-0000-0000-0000-000000000005",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "core",
+    "target": "yanky",
+    "color": "black",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000570",
+    "srcResource": "00000000-0000-0000-0000-000000000005",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "core",
+    "target": "zulu",
+    "color": "black",
+    "bandwidth": "500",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000670",
+    "srcResource": "00000000-0000-0000-0000-000000000006",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "yanky",
+    "target": "zulu",
+    "color": "black",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  }
+]
