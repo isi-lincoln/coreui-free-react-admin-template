@@ -14,6 +14,14 @@ const Register = React.lazy(() => import('./views/pages/register/Register'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
+const Stats = React.lazy(() => import('./views/pages/misc/Stats'))
+const Graph = React.lazy(() => import('./views/pages/misc/Graph'))
+const Grafana = React.lazy(() => import('./views/pages/misc/Grafana'))
+const Resources = React.lazy(() => import('./views/pages/misc/Resources'))
+const Scanner = React.lazy(() => import('./views/pages/misc/Scanner'))
+const Network = React.lazy(() => import('./views/pages/misc/Network'))
+const Slice = React.lazy(() => import('./views/pages/misc/Slice'))
+
 const App = () => {
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
   const storedTheme = useSelector((state) => state.theme)
@@ -44,6 +52,13 @@ const App = () => {
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route exact path="/register" name="Register Page" element={<Register />} />
+          <Route exact path="/stats" name="Statistics" element={<Stats />} />
+          <Route exact path="/graph" name="Graphics" element={<Graph />} />
+          <Route exact path="/grafana" name="Grafana" element={<Grafana />} />
+          <Route exact path="/resources" name="Resources" element={<Resources />} />
+          <Route exact path="/scanner" name="Scanner" element={<Scanner />} />
+          <Route exact path="/network" name="Network" element={<Network />} />
+          <Route exact path="/slice" name="Slice" element={<Slice />} />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
           <Route exact path="/500" name="Page 500" element={<Page500 />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />

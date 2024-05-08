@@ -5,6 +5,7 @@ import { CContainer, CSpinner } from '@coreui/react'
 // routes config
 import routes from '../routes'
 
+// <Route path="/" element={<Navigate to="dashboard" replace />} />
 const AppContent = () => {
   return (
     <CContainer className="px-4" lg>
@@ -23,7 +24,6 @@ const AppContent = () => {
               )
             )
           })}
-          <Route path="/" element={<Navigate to="dashboard" replace />} />
         </Routes>
       </Suspense>
     </CContainer>
