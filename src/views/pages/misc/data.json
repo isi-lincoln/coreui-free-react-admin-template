@@ -1,11 +1,14 @@
-[
-  { "data": { "id": "sdcore1"}},
-  { "data": { "id": "sdcore2"}},
-  { "data": { "id": "alpha"}},
-  { "data": { "id": "bravo"}},
-  { "data": { "id": "core"}},
-  { "data": { "id": "yanky"}},
-  { "data": { "id": "zulu"}},
+{
+  "nodes": [
+  { "data": { "id": "sdcore1", "uuid": "00000000-0000-0000-0000-000000000001", "cores": 8, "memory": 32, "storage": 64, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "bravo"] }},
+  { "data": { "id": "sdcore2", "uuid": "00000000-0000-0000-0000-000000000002", "cores": 8, "memory": 32, "storage": 64, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["yanky", "zulu"] }},
+  { "data": { "id": "alpha", "uuid": "00000000-0000-0000-0000-000000000003", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore1", "bravo", "core", "yanky"]}},
+  { "data": { "id": "bravo", "uuid": "00000000-0000-0000-0000-000000000004", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "sdcore1", "core", "zulu"]}},
+  { "data": { "id": "core", "uuid": "00000000-0000-0000-0000-000000000005", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "bravo", "yanky", "zulu"]}},
+  { "data": { "id": "yanky", "uuid": "00000000-0000-0000-0000-000000000006", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore2", "zulu", "alpha"]}},
+  { "data": { "id": "zulu", "uuid": "00000000-0000-0000-0000-000000000007", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore2", "yanky", "bravo"]}}
+  ],
+  "edges": [
   {
     "data": {
       "uuid": "00000000-0000-0000-0000-000000000130",
@@ -151,3 +154,4 @@
     }
   }
 ]
+}

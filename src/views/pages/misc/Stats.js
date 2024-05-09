@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import Default from '../../../layout/DefaultLayout';
+import JsonView from '@uiw/react-json-view';
+import { nordTheme } from '@uiw/react-json-view/nord';
 import Data from "../../dashboard/nodes.json";
 
 import {
@@ -96,7 +98,7 @@ const Stats = () => {
             <CCardBody>
               <CRow>
                 <CCol xs={12} md={6} xl={6}>
-                  <pre>{JSON.stringify(Data, null, 2)}</pre>
+	          <JsonView style={nordTheme} value={Data} shortenTextAfterLength={100} collapsed={true} />
                 </CCol>
               </CRow>
             </CCardBody>
