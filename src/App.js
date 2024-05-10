@@ -21,6 +21,7 @@ const Resources = React.lazy(() => import('./views/pages/misc/Resources'))
 const Scanner = React.lazy(() => import('./views/pages/misc/Scanner'))
 const Network = React.lazy(() => import('./views/pages/misc/Network'))
 const Slice = React.lazy(() => import('./views/pages/misc/Slice'))
+const Deploy = React.lazy(() => import('./views/pages/misc/Deploy'))
 
 const App = () => {
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
@@ -59,6 +60,7 @@ const App = () => {
           <Route exact path="/scanner" name="Scanner" element={<Scanner />} />
           <Route exact path="/network" name="Network" element={<Network />} />
           <Route exact path="/slice" name="Slice" element={<Slice />} />
+          <Route exact path="/deploy" name="Deploy" element={<Deploy />} />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
           <Route exact path="/500" name="Page 500" element={<Page500 />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />

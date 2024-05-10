@@ -35,7 +35,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Grafana',
-    to: '/grafana',
+    href: 'http://localhost:3000/',
     icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
   },
   {
@@ -76,6 +76,11 @@ const _nav = [
         component: CNavItem,
         name: 'Configure Slice',
         to: '/slice',
+      },
+      {
+        component: CNavItem,
+        name: 'Deploy Slice',
+        to: '/deploy',
       },
     ],
   },

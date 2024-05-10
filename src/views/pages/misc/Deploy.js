@@ -52,7 +52,7 @@ function LoadConstraintsButton() {
     );
 }
 
-const Slice = () => {
+const Deploy = () => {
   const [selected, setSelected] = useState(null);
 
   return (
@@ -77,7 +77,7 @@ const Slice = () => {
                 { selected && (
                 <CCol xs>
                 <div>
-                  <CButton color="success" href="#/deploy" onClick={() => setSelected(true)}>
+                  <CButton color="success" href="/deploy" onClick={() => setSelected(true)}>
                     Solve & Deploy Slice
                   </CButton>
                 </div>
@@ -133,6 +133,8 @@ const Slice = () => {
       </CRow>
       )}
 
+
+
         </div>
         <AppFooter />
       </div>
@@ -140,4 +142,4 @@ const Slice = () => {
   )
 }
 
-export default Slice
+export default Deploy

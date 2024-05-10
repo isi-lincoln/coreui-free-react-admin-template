@@ -8,6 +8,7 @@ const Network = React.lazy(() => import('./views/pages/misc/Network'))
 const Resources = React.lazy(() => import('./views/pages/misc/Resources'))
 const Scanner = React.lazy(() => import('./views/pages/misc/Scanner'))
 const Slice = React.lazy(() => import('./views/pages/misc/Slice'))
+const Deploy = React.lazy(() => import('./views/pages/misc/Deploy'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -19,6 +20,7 @@ const routes = [
   { path: '/grafana/*', name: 'Grafana', element: Grafana },
   { path: '/slice/*', name: 'Slice', element: Slice },
   { path: '/scanner/*', name: 'Scanner', element: Scanner },
+  { path: '/deploy/*', name: 'Scanner', element: Deploy },
 ]
 
 export default routes
