@@ -17,7 +17,7 @@
     "lint": "eslint \"src/**/*.js\"",
     "serve": "vite preview",
     "start": "vite",
-    "dev": "vite --host --port 3000"
+    "dev": "vite --host --port 8000"
   },
   "dependencies": {
     "@coreui/chartjs": "^4.0.0",

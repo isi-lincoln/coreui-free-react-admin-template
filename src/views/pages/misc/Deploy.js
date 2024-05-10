@@ -4,7 +4,7 @@ import JsonView from '@uiw/react-json-view';
 import { nordTheme } from '@uiw/react-json-view/nord';
 import Data from "./data.json";
 import Constraints from "./constraints.json";
-
+import StreamingDataComponent from "./Stream"
 
 import {
   CButton,
@@ -13,6 +13,8 @@ import {
   CCardFooter,
   CCardHeader,
   CCol,
+  CForm,
+  CFormTextarea,
   CProgress,
   CRow,
   CTable,
@@ -36,24 +38,12 @@ import { AppSidebar, AppFooter, AppHeader } from '../../../components/index'
 // TODO: Ping
 // TODO: Movie
 
-function LoadConstraintsButton() {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-  return (
-    <div>
-      <input type="file" id="fileInput" onChange={handleFileChange} style={{ display: 'none' }} />
-        <CButton color="primary" onClick={() => document.getElementById('fileInput').click()}>
-          Load Constraints 
-        </CButton>
-        {selectedFile}
-      </div>
-    );
-}
+
 
 const Deploy = () => {
   const [selected, setSelected] = useState(null);
+  const [pvselected, pvsetSelected] = useState(null);
+  const [vselected, vsetSelected] = useState(null);
 
   return (
     <div>
@@ -64,42 +54,48 @@ const Deploy = () => {
           <CCard className="mb-4">
             <CCardBody>
               <CRow>
-                { !selected && (
                 <CCol xs>
-                <div>
-                  <CButton color="primary" onClick={() => setSelected(true)}>
-                    Create New Slice 
-                  </CButton>
-                  {selected}
-                </div>
-	        </CCol>
-		)}
-                { selected && (
+                  <div>
+                  </div>
+	            </CCol>
                 <CCol xs>
-                <div>
-                  <CButton color="success" href="/deploy" onClick={() => setSelected(true)}>
-                    Solve & Deploy Slice
-                  </CButton>
-                </div>
-	        </CCol>
-		)}
-
-                { selected && (
+                  <div>
+                    <CButton color="primary" onClick={() => setSelected(false)}>
+                      Validate Path
+                    </CButton>
+                  </div>
+	            </CCol>
                 <CCol xs>
-                <div>
-                  <CButton color="danger" onClick={() => setSelected(false)}>
-                    Cancel
-                  </CButton>
-                </div>
-	        </CCol>
-		)}
+                  <div>
+                    <CButton color="primary" onClick={() => setSelected(false)}>
+                      Test Path Connectivity
+                    </CButton>
+                  </div>
+	            </CCol>
               </CRow>
-	      <br />
-              { selected && (
-                <CRow>
-		  <LoadConstraintsButton />
-                </CRow>
-	      )}
+              <br />
+              <CRow>
+                <CCol xs>
+                  <div>
+                    <StreamingDataComponent endpoint="deploy"/>
+                  </div>
+	            </CCol>
+
+                { pvselected && (
+                  <CCol xs>
+                    <div>
+                      <StreamingDataComponent endpoint="pv"/>
+                    </div>
+	              </CCol>
+                )}
+                { vselected && (
+                  <CCol xs>
+                    <div>
+                      <StreamingDataComponent endpoint="validate"/>
+                    </div>
+	              </CCol>
+                )}
+              </CRow>
             </CCardBody>
           </CCard>
       <br />
