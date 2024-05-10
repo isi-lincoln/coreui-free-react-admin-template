@@ -34,8 +34,8 @@ func main() {
 	r := gin.Default()
 	config := cors.DefaultConfig()
 	config.AllowAllOrigins = true
-	config.AllowHeaders = []string{"Origin"}
-	config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH"}
+	config.AllowHeaders = []string{"Origin", "Content-Type"}
+	config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "OPTIONS"}
 	config.ExposeHeaders = []string{"Content-Length"}
 	r.Use(cors.New(config))
 

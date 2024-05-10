@@ -30,7 +30,7 @@ ENV UPSTREAM "172.22.2.1"
 ENV HOST 0.0.0.0
 ENV PORT 8001
 ENV DEBUG   "true"
-ENV GIN_MODE DEBUG
+ENV GIN_MODE debug
 
 # orchestratorctld grpc
 EXPOSE ${PORT}
