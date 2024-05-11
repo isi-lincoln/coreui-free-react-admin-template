@@ -12,6 +12,6 @@ RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
 
-EXPOSE 8000
+EXPOSE 10000
 
 CMD ["/bin/bash", "start.sh"]

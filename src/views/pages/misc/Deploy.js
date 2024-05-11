@@ -60,14 +60,14 @@ const Deploy = () => {
 	            </CCol>
                 <CCol xs>
                   <div>
-                    <CButton color="primary" onClick={() => setSelected(false)}>
+                    <CButton color="primary" onClick={() => pvsetSelected(!pvselected)}>
                       Validate Path
                     </CButton>
                   </div>
 	            </CCol>
                 <CCol xs>
                   <div>
-                    <CButton color="primary" onClick={() => setSelected(false)}>
+                    <CButton color="primary" onClick={() => vsetSelected(!vselected)}>
                       Test Path Connectivity
                     </CButton>
                   </div>

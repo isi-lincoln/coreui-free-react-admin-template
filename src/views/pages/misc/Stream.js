@@ -31,7 +31,7 @@ function StreamingDataComponent({ endpoint }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8001/".concat(endpoint),{
+        const response = await fetch("http://localhost:10001/".concat(endpoint),{
           mode: 'cors',
           method: 'GET',
           headers: {

@@ -26,9 +26,8 @@ RUN apt update && apt install -qy \
 COPY --from=build /data/build /usr/bin/
 
     
-ENV UPSTREAM "172.22.2.1"
 ENV HOST 0.0.0.0
-ENV PORT 8001
+ENV PORT 10001
 ENV DEBUG   "true"
 ENV GIN_MODE debug
 

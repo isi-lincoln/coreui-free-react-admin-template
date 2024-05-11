@@ -26,7 +26,7 @@ func main() {
 
 	flag.StringVar(&host, "host", "0.0.0.0", "set the host value")
 	flag.StringVar(&upstream, "upstream", "172.22.2.1", "set the upstream value")
-	flag.IntVar(&port, "port", 8001, "set the port value")
+	flag.IntVar(&port, "port", 10001, "set the port value")
 	flag.BoolVar(&debug, "debug", false, "enable extra debug logging")
 
 	flag.Parse()
@@ -46,8 +46,9 @@ func main() {
 	})
 	r.GET("/deploy", func(c *gin.Context) {
 		data = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", fmt.Sprintf("rvn@%s", upstream), "sudo", "ansible-playbook", "")
+		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
 
+		log.Infof("deploy called, running %s", cmd)
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
 			c.JSON(http.StatusNotFound, gin.H{
@@ -73,7 +74,8 @@ func main() {
 	})
 	r.GET("/pv", func(c *gin.Context) {
 		pvdata = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", fmt.Sprintf("rvn@%s", upstream), "sudo", "ansible-playbook", "")
+		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
+		log.Infof("pv called, running %s", cmd)
 
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
@@ -100,7 +102,8 @@ func main() {
 	})
 	r.GET("/validate", func(c *gin.Context) {
 		vdata = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", fmt.Sprintf("rvn@%s", upstream), "sudo", "ansible-playbook", "")
+		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
+		log.Infof("validate called, running %s", cmd)
 
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
