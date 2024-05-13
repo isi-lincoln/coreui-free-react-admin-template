@@ -75,25 +75,20 @@ const Deploy = () => {
               </CRow>
               <br />
               <CRow>
-                <CCol xs>
+                { (!pvselected && !vselected) && (
                   <div>
                     <StreamingDataComponent endpoint="deploy"/>
                   </div>
-	            </CCol>
-
-                { pvselected && (
-                  <CCol xs>
-                    <div>
-                      <StreamingDataComponent endpoint="pv"/>
-                    </div>
-	              </CCol>
+                )}
+                { (pvselected && !vselected) && (
+                  <div>
+                    <StreamingDataComponent endpoint="pv"/>
+                  </div>
                 )}
                 { vselected && (
-                  <CCol xs>
-                    <div>
-                      <StreamingDataComponent endpoint="validate"/>
-                    </div>
-	              </CCol>
+                  <div>
+                    <StreamingDataComponent endpoint="validate"/>
+                  </div>
                 )}
               </CRow>
             </CCardBody>

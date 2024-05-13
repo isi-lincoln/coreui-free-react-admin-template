@@ -1,0 +1,157 @@
+{
+  "nodes": [
+  { "data": { "id": "sdcore1", "uuid": "00000000-0000-0000-0000-000000000001", "cores": 8, "memory": 32, "storage": 64, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "bravo"] }},
+  { "data": { "id": "sdcore2", "uuid": "00000000-0000-0000-0000-000000000002", "cores": 8, "memory": 32, "storage": 64, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["yanky", "zulu"] }},
+  { "data": { "id": "alpha", "uuid": "00000000-0000-0000-0000-000000000003", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore1", "bravo", "core", "yanky"]}},
+  { "data": { "id": "bravo", "uuid": "00000000-0000-0000-0000-000000000004", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "sdcore1", "core", "zulu"]}},
+  { "data": { "id": "core", "uuid": "00000000-0000-0000-0000-000000000005", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["alpha", "bravo", "yanky", "zulu"]}},
+  { "data": { "id": "yanky", "uuid": "00000000-0000-0000-0000-000000000006", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore2", "zulu", "alpha"]}},
+  { "data": { "id": "zulu", "uuid": "00000000-0000-0000-0000-000000000007", "cores": 2, "memory": 8, "storage": 40, "flags": { "simd128": true, "simd256": true, "simd512": false, "aesni": true, "rdrand": true, "vmx": true }, "neighbors": ["sdcore2", "yanky", "bravo"]}}
+  ],
+  "edges": [
+  {
+    "data": {
+      "uuid": "00000000-0000-0000-0000-000000000130",
+      "srcResource": "00000000-0000-0000-0000-000000000001",
+      "dstResource": "00000000-0000-0000-0000-000000000003",
+      "source": "sdcore1",
+      "target": "alpha",
+      "color": "blue",
+      "bandwidth": "1000",
+      "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000140",
+    "srcResource": "00000000-0000-0000-0000-000000000001",
+    "dstResource": "00000000-0000-0000-0000-000000000004",
+    "source": "sdcore1",
+    "target": "bravo",
+    "color": "black",
+    "bandwidth": "100",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000260",
+    "srcResource": "00000000-0000-0000-0000-000000000002",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "sdcore2",
+    "target": "yanky",
+    "color": "black",
+    "bandwidth": "200",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000270",
+    "srcResource": "00000000-0000-0000-0000-000000000002",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "sdcore2",
+    "target": "zulu",
+    "color": "blue",
+    "bandwidth": "1000",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000340",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000004",
+    "source": "alpha",
+    "target": "bravo",
+    "color": "blue",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000350",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000005",
+    "source": "alpha",
+    "target": "core",
+    "color": "purple",
+    "bandwidth": "500",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000360",
+    "srcResource": "00000000-0000-0000-0000-000000000003",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "alpha",
+    "target": "yanky",
+    "color": "red",
+    "bandwidth": "300",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000450",
+    "srcResource": "00000000-0000-0000-0000-000000000004",
+    "dstResource": "00000000-0000-0000-0000-000000000005",
+    "source": "bravo",
+    "target": "core",
+    "color": "blue",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000470",
+    "srcResource": "00000000-0000-0000-0000-000000000004",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "bravo",
+    "target": "zulu",
+    "color": "black",
+    "bandwidth": "200",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000560",
+    "srcResource": "00000000-0000-0000-0000-000000000005",
+    "dstResource": "00000000-0000-0000-0000-000000000006",
+    "source": "core",
+    "target": "yanky",
+    "color": "blue",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000570",
+    "srcResource": "00000000-0000-0000-0000-000000000005",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "core",
+    "target": "zulu",
+    "color": "purple",
+    "bandwidth": "500",
+    "linkType": "ethernet"
+    }
+  },
+  {
+    "data": {
+    "uuid": "00000000-0000-0000-0000-000000000670",
+    "srcResource": "00000000-0000-0000-0000-000000000006",
+    "dstResource": "00000000-0000-0000-0000-000000000007",
+    "source": "yanky",
+    "target": "zulu",
+    "color": "blue",
+    "bandwidth": "600",
+    "linkType": "ethernet"
+    }
+  }
+]
+}
