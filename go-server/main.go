@@ -20,9 +20,6 @@ func main() {
 	var port int
 	var host string
 	var upstream string
-	var data string
-	var pvdata string
-	var vdata string
 
 	flag.StringVar(&host, "host", "0.0.0.0", "set the host value")
 	flag.StringVar(&upstream, "upstream", "172.22.2.1", "set the upstream value")
@@ -45,12 +42,12 @@ func main() {
 		})
 	})
 	r.GET("/deploy", func(c *gin.Context) {
-		data = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
+		cmd := exec.Command("ssh", "pulwar", "sudo", "/home/lthurlow/demo-deploy1.sh")
 
 		log.Infof("deploy called, running %s", cmd)
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
+			log.Errorf("deploy error %v", err)
 			c.JSON(http.StatusNotFound, gin.H{
 				"data": "pong",
 			})
@@ -58,27 +55,24 @@ func main() {
 		cmd.Start()
 
 		scanner := bufio.NewScanner(stdout)
-		scanner.Split(bufio.ScanWords)
+		scanner.Split(bufio.ScanLines)
 
 		for scanner.Scan() {
-			msg := scanner.Text()
-			data = fmt.Sprintf("%s%s", data, msg)
-			c.JSON(http.StatusOK, gin.H{
-				"data": data,
-			})
+			msg := scanner.Text() + "\n"
+			log.Infof("scanner text found: %s", msg)
+			//data = fmt.Sprintf("%s%s", data, msg)
+			//c.JSON(http.StatusOK, gin.H{"data": msg})
+			c.Data(http.StatusOK, gin.MIMEJSON, []byte(msg))
 		}
 		cmd.Wait()
-		c.JSON(http.StatusOK, gin.H{
-			"data": data,
-		})
 	})
 	r.GET("/pv", func(c *gin.Context) {
-		pvdata = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
-		log.Infof("pv called, running %s", cmd)
+		cmd := exec.Command("ssh", "pulwar", "sudo", "/home/lthurlow/demo-deploy2.sh")
 
+		log.Infof("path validation called, running %s", cmd)
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
+			log.Errorf("pv error %v", err)
 			c.JSON(http.StatusNotFound, gin.H{
 				"data": "pong",
 			})
@@ -86,27 +80,21 @@ func main() {
 		cmd.Start()
 
 		scanner := bufio.NewScanner(stdout)
-		scanner.Split(bufio.ScanWords)
+		scanner.Split(bufio.ScanLines)
 
 		for scanner.Scan() {
-			msg := scanner.Text()
-			data = fmt.Sprintf("%s%s", pvdata, msg)
-			c.JSON(http.StatusOK, gin.H{
-				"data": pvdata,
-			})
+			msg := scanner.Text() + "\n"
+			log.Infof("scanner text found: %s", msg)
+			c.Data(http.StatusOK, gin.MIMEJSON, []byte(msg))
 		}
-		cmd.Wait()
-		c.JSON(http.StatusOK, gin.H{
-			"data": pvdata,
-		})
 	})
 	r.GET("/validate", func(c *gin.Context) {
-		vdata = ""
-		cmd := exec.Command("sshpass", "-p", "rvn", "ssh", "rvn@localhost", "sudo", "ansible-playbook", "")
-		log.Infof("validate called, running %s", cmd)
+		cmd := exec.Command("ssh", "pulwar", "sudo", "/home/lthurlow/demo-deploy3.sh")
 
+		log.Infof("validate called, running %s", cmd)
 		stdout, err := cmd.StdoutPipe()
 		if err != nil {
+			log.Errorf("validate error %v", err)
 			c.JSON(http.StatusNotFound, gin.H{
 				"data": "pong",
 			})
@@ -114,19 +102,15 @@ func main() {
 		cmd.Start()
 
 		scanner := bufio.NewScanner(stdout)
-		scanner.Split(bufio.ScanWords)
+		scanner.Split(bufio.ScanLines)
 
 		for scanner.Scan() {
-			msg := scanner.Text()
-			data = fmt.Sprintf("%s%s", vdata, msg)
-			c.JSON(http.StatusOK, gin.H{
-				"data": vdata,
-			})
+			msg := scanner.Text() + "\n"
+			log.Infof("scanner text found: %s", msg)
+			//data = fmt.Sprintf("%s%s", data, msg)
+			//c.JSON(http.StatusOK, gin.H{"data": msg})
+			c.Data(http.StatusOK, gin.MIMEJSON, []byte(msg))
 		}
-		cmd.Wait()
-		c.JSON(http.StatusOK, gin.H{
-			"data": vdata,
-		})
 	})
 	r.GET("/video", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

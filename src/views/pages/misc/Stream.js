@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import JsonView from '@uiw/react-json-view';
 import { nordTheme } from '@uiw/react-json-view/nord';
-import Data from "./data.json";
-import Constraints from "./constraints.json";
 
 import {
   CButton,
@@ -41,6 +39,7 @@ function StreamingDataComponent({ endpoint }) {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+	console.log(response.body);
         const reader = response.body.getReader();
         const decoder = new TextDecoder('utf-8');
 
@@ -49,6 +48,7 @@ function StreamingDataComponent({ endpoint }) {
             console.log('Stream complete');
             return;
           }
+	  console.log(decoder.decode(value));
           setData(prevData => prevData + decoder.decode(value));
           return reader.read().then(processText);
         });

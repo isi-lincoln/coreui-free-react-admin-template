@@ -21,7 +21,8 @@ FROM ubuntu:22.04 as final
 
 RUN apt update && apt install -qy \
     iproute2 \
-    vim
+    vim \
+    openssh-client
 
 COPY --from=build /data/build /usr/bin/
 
